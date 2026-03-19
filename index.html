@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Bella</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="section img1">
+    <div class="hero-text">
+        <h1>Casa Bella</h1>
+        <p>Rooted in Heritage,Refined in Excellence.</p>
+        
+    </div>
+</section>
+    <section class="section img2">
+        <div class="left-info">
+            <h3>Dining Experience</h3>
+            <ul>
+                <li>Authentic ambiance</li>
+                <li>Quality ingredients</li>
+                <li>Exceptional service</li>
+                <li>Memorable moments</li>
+            </ul>
+            <h3>Special Features</h3>
+            <ul>
+                <li>Outdoor seating</li>
+                <li>Live music nights</li>
+                <li>Chef's specials</li>
+                <li>Family-friendly</li>
+            </ul>
+        </div>
+        <div class="nature-text">
+        <h2>Where Nature</h2>
+        <h1>Sets the Table</h1>
+    </div>
+        <div class="right-info">
+            <h3>Our Services</h3>
+            <ul>
+                <li>Event catering</li>
+                <li>Private events</li>
+                <li>Takeout options</li>
+                <li>Delivery service</li>
+            </ul>
+            <h3>Additional Amenities</h3>
+            <ul>
+                <li>Wi-Fi access</li>
+                <li>Parking available</li>
+                <li>Reservations online</li>
+                <li>Gift cards</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section img3">
+        <div class="dishes-info">
+            <h3>Dishes</h3>
+            <ul>
+                <li>Biryani</li>
+                <li>Butter Chicken</li>
+                <li>Dosa</li>
+                <li>Paneer Tikka</li>
+                <li>Rogan Josh</li>
+            </ul>
+        </div>
+        <div class="special-dishes">
+            <h3>Special Dishes</h3>
+            <ul>
+                <li>Lamb Vindaloo</li>
+                <li>Chicken Tikka Masala</li>
+                <li>Vegetable Korma</li>
+                <li>Fish Curry</li>
+                <li>Raita</li>
+            </ul>
+        </div>
+
+    </section>
+    
+    <div class="reservation-form" id="reservationForm" style="opacity: 0;">
+      <form onsubmit="saveReservation(event)">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="email" id="email" placeholder="Email Address" required>
+    <input type="date" id="date" required>
+    <input type="time" id="time" required>
+    <input type="number" id="guests" placeholder="Number of Guests" required>
+    <button type="submit" class="cta-btn">Confirm Reservation</button>
+</form>
+    </div>
+    
+</body>
+<script>
+
+window.addEventListener('scroll', function() {
+    const img2Text = document.querySelector('.nature-text');
+    const leftInfo = document.querySelector('.left-info');
+    const rightInfo = document.querySelector('.right-info');
+    const dishesInfo = document.querySelector('.dishes-info');
+    const specialDishes = document.querySelector('.special-dishes');
+    const reservationForm = document.getElementById('reservationForm');
+
+    // For img2 text: fade in as img2 appears
+    const img2Opacity = Math.min(window.scrollY / window.innerHeight, 1);
+    img2Text.style.opacity = img2Opacity;
+    leftInfo.style.opacity = img2Opacity;
+    rightInfo.style.opacity = img2Opacity;
+
+    // For img3 text: fade in as img3 appears
+    const img3Opacity = Math.min((window.scrollY - 2 * window.innerHeight) / window.innerHeight, 1);
+    const shadow = img3Opacity > 0.5 ? '4px 4px 8px rgba(0,0,0,0.8)' : '2px 2px 4px rgba(0,0,0,0.5)';
+    dishesInfo.style.textShadow = shadow;
+    specialDishes.style.textShadow = shadow;
+
+    // For reservation form: show at bottom
+    if (window.scrollY + window.innerHeight >= document.body.scrollHeight - 10) {
+        reservationForm.style.opacity = '1';
+    } else {
+        reservationForm.style.opacity = '0';
+    }
+});
+
+function saveReservation(event) {
+    event.preventDefault(); // stops page refresh
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const date = document.getElementById("date").value;
+    const time = document.getElementById("time").value;
+    const guests = document.getElementById("guests").value;
+
+    const reservation = {
+        name: name,
+        email: email,
+        date: date,
+        time: time,
+        guests: guests
+    };
+
+    let reservations = JSON.parse(localStorage.getItem("reservations")) || [];
+
+    reservations.push(reservation);
+
+    localStorage.setItem("reservations", JSON.stringify(reservations));
+
+    alert("Reservation Confirmed!");
+
+    document.querySelector("form").reset();
+
+    console.log(JSON.parse(localStorage.getItem("reservations")));
+}
+</script>
+
+
+
+</html>

@@ -1,0 +1,195 @@
+body {
+    margin:0;
+    scroll-behavior: smooth;
+}
+
+.section {
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;   /* VERY important */
+}
+
+.hero-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-family: 'Playfair Display',serif;
+    font-size: 9vw;
+    font-style:italic;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+
+    background: linear-gradient(
+        90deg,
+        #b8860b,
+        #ffd700,
+        #fff5b1,
+        #ffd700,
+        #b8860b
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.hero-text p {
+    font-size: 25px;   /* smaller */
+    letter-spacing: 3px;
+    margin-top: 15px;
+    color: white;      /* or gold if you prefer */
+}
+
+
+/* Your images */
+.img1 {
+    background-image: url("images/restaurant.jpg");
+}
+
+.img2 {
+    background-image: url("images/img 1.jpg");
+}
+
+.img2 {
+    position: relative;
+}
+
+.nature-text {
+    position: absolute;
+    top: calc(25% - 10px);                 /* adjust for visual balance */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Make it brighter with shadow */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.nature-text h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2vw;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.nature-text h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 7vw;           /* BIG */
+    font-weight: 400;
+    margin: 10px 0 0 0;
+    line-height: 1;
+}
+
+.left-info, .right-info {
+    position: absolute;
+    top: calc(50% - 10px);
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.7); /* Lighter color */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2vw;
+    max-width: 20%;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.left-info {
+    left: 10%;
+    text-align: left;
+}
+
+.right-info {
+    right: 10%;
+    text-align: right;
+}
+
+.img3 {
+    background-image: url("images/img 2.jpg");
+    position: relative;
+}
+
+.dishes-info, .special-dishes {
+    position: absolute;
+    bottom: 50px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5vw;
+    background: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.dishes-info {
+    left: 20px;
+}
+
+.special-dishes {
+    left: 250px;
+}
+
+.reservation-form {
+    transition: opacity 0.5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    /* Add other styles if needed */
+}
+}
+
+.booking-container h1 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 4px;
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}
+
+form input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #d4af37;
+    background: transparent;
+    color: white;
+}
+
+form button {
+    margin-top: 10px;
+}
+.cta-btn {
+    position: fixed;          /* stays at bottom even while scrolling */
+    bottom: 30px;             /* distance from bottom */
+    right: 30px;              /* distance from right */
+
+    font-size: 18px;          /* slightly bigger text */
+    padding: 14px 28px;       /* bigger button size */
+    
+    background-color: #1ada3aa3; /* classic gold */
+    color: white;
+    border: none;
+
+    border-radius: 30px;      /* makes corners smooth */
+    
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #0ef221;
+    transform: scale(1.05);   /* subtle luxury feel */
+}
